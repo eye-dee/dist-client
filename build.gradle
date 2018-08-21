@@ -1,3 +1,5 @@
+import org.apache.tools.ant.taskdefs.condition.Os
+
 buildscript {
     ext {
         springBootVersion = '2.0.4.RELEASE'
@@ -34,11 +36,18 @@ repositories {
 ext {
     nettyVersion = '5.0.0.Alpha2'
     protobufVersion = '3.6.1'
+    protocPath = ''
+}
+
+if (Os.isFamily(Os.FAMILY_WINDOWS)) {
+    protocPath = 'C:\\Program Files\\protoc-3.5.1\\bin\\protoc.exe'
+} else {
+    protocPath = '/usr/local/bin/protoc'
 }
 
 protobuf {
     protoc {
-        path = 'C:\\Program Files\\protoc-3.5.1\\bin\\protoc.exe'
+        path = "$protocPath"
     }
     generatedFilesBaseDir = "$projectDir/src"
 }
