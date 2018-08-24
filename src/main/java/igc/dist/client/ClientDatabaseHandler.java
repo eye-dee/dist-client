@@ -2,6 +2,7 @@ package igc.dist.client;
 
 import igc.dist.proto.Connection.CreateConnection;
 import igc.dist.proto.Connection.MessageAccepted;
+import igc.dist.proto.Query.InternalQueryRequest;
 import igc.dist.proto.Query.QueryRequest;
 import igc.dist.proto.Query.QueryType;
 import io.netty.channel.ChannelHandlerAdapter;
